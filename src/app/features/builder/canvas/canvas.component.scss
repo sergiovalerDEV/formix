@@ -1,0 +1,122 @@
+.canvas {
+  flex: 1;
+  padding: var(--space-5);
+  min-height: 200px;
+
+  // ── Empty state ──────────────────────────────────────────
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-10) var(--space-6);
+    gap: var(--space-3);
+    text-align: center;
+  }
+
+  &__empty-icon {
+    font-size: 40px;
+    opacity: 0.15;
+  }
+
+  &__empty-title {
+    font-size: var(--text-md);
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  &__empty-sub {
+    max-width: 200px;
+    line-height: 1.5;
+  }
+
+  // ── List ────────────────────────────────────────────────
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  // ── Field row ───────────────────────────────────────────
+  &__field {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition:
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast);
+    animation: fade-in 180ms ease forwards;
+
+    &:hover {
+      border-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+    }
+
+    &--selected {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px var(--color-accent-soft);
+    }
+  }
+
+  &__drag-handle {
+    color: var(--color-text-muted);
+    cursor: grab;
+    font-size: var(--text-lg);
+    opacity: 0.4;
+    user-select: none;
+    flex-shrink: 0;
+
+    &:active { cursor: grabbing; }
+  }
+
+  &__field-type {
+    flex-shrink: 0;
+    width: 72px;
+  }
+
+  &__field-label {
+    flex: 1;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__required {
+    color: var(--color-danger);
+    margin-left: 2px;
+  }
+
+  &__remove {
+    opacity: 0;
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    transition:
+      opacity var(--transition-fast),
+      color var(--transition-fast),
+      background var(--transition-fast);
+
+    .canvas__field:hover & {
+      opacity: 1;
+    }
+
+    &:hover {
+      color: var(--color-danger);
+      background: rgba(239, 68, 68, 0.08);
+    }
+  }
+
+  &__placeholder {
+    height: 52px;
+    border-radius: var(--radius-md);
+    border: 2px dashed var(--color-accent);
+    background: var(--color-accent-soft);
+  }
+}

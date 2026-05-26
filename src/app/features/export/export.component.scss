@@ -1,0 +1,102 @@
+.export {
+  position: relative;
+
+  &__trigger {
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-accent);
+    color: #fff;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    transition: opacity var(--transition-fast);
+
+    &:hover { opacity: 0.88; }
+  }
+
+  &__backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+  }
+
+  &__modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    width: min(640px, 90vw);
+    max-height: 80vh;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  &__modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-5) var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
+  }
+
+  &__modal-title {
+    font-size: var(--text-md);
+    font-weight: 700;
+  }
+
+  &__close {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    transition: color var(--transition-fast), background var(--transition-fast);
+
+    &:hover {
+      color: var(--color-text);
+      background: var(--color-surface-alt);
+    }
+  }
+
+  &__code {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-5) var(--space-6);
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-size: var(--text-xs);
+  }
+
+  &__modal-footer {
+    display: flex;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-6);
+    border-top: 1px solid var(--color-border);
+    flex-shrink: 0;
+  }
+
+  &__btn {
+    padding: var(--space-2) var(--space-5);
+    background: var(--color-accent);
+    color: #fff;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    transition: opacity var(--transition-fast);
+
+    &:hover { opacity: 0.88; }
+
+    &--secondary {
+      background: var(--color-surface-alt);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+  }
+}
