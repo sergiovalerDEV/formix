@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core'
-import { CdkDragDrop, CdkDropList, CdkDrag, moveItemInArray } from '@angular/cdk/drag-drop'
+import { CdkDragDrop, CdkDropList, CdkDrag, CdkDragPlaceholder, CdkDragHandle, moveItemInArray } from '@angular/cdk/drag-drop'
 import { BuilderStore } from '../../../../state/builder.store'
 import type { FormField } from '../../../../core/models/field.model'
 
 @Component({
   selector: 'app-canvas',
   standalone: true,
-  imports: [CdkDropList, CdkDrag],
+  imports: [CdkDropList, CdkDrag, CdkDragPlaceholder, CdkDragHandle],
   template: `
     <div class="canvas">
 

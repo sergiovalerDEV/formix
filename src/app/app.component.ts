@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { BuilderComponent } from './features/builder/builder.component';
+import { PreviewComponent } from './features/preview/preview-component';
 import { ExportComponent } from './features/export/export.component';
 import { BuilderStore } from '../state/builder.store';
-import { inject } from '@angular/core';
-import { PreviewComponent } from './features/preview/preview-component';
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -21,7 +19,7 @@ import { PreviewComponent } from './features/preview/preview-component';
           [value]="store.title()"
           (input)="store.setTitle($any($event.target).value)"
           placeholder="Form title..."
-        // />
+        />
         <div class="app__actions">
           <span class="app__field-count">
             {{ store.fields().length }} field{{ store.fields().length !== 1 ? 's' : '' }}
